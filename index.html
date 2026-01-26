@@ -226,6 +226,41 @@
       color: rgba(232,236,255,0.72);
       font-size: 0.85rem;
     }
+
+    .criteriaText {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .criteriaText p { margin: 0; }
+
+    .criteriaGrid {
+      margin-top: 12px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 860px) {
+      .criteriaGrid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .figureCard {
+      border: 1px solid var(--border);
+      background: rgba(2, 4, 10, 0.35);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .figureCard img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .figureCard figcaption {
+      padding: 10px 12px 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
   </style>
 </head>
 <body>
@@ -240,6 +275,78 @@
         <div>Contact: <code>{ceguaku, arijitk}@bgsu.edu</code>, <code>cuneyt.akcora@ucf.edu</code></div>
       </div>
     </header>
+
+    <section class="section" id="paper-selection-criteria">
+      <h2>Paper Selection Criteria</h2>
+
+      <div class="criteriaText">
+        <p>
+          We conducted a structured survey of recent work on large language models applied to blockchain security and
+          financial analytics, targeting publications from January 2020 through October 2025. This timeframe spans the
+          widespread adoption of transformer-based models, the emergence of instruction-tuned and code-focused LLMs, and
+          the more recent use of retrieval-augmented and agentic systems. We queried major academic venues and
+          repositories, including IEEE Xplore, ACM Digital Library, Springer, arXiv, and Google Scholar, using
+          combinations of keywords related to large language models, blockchain systems, smart contracts, transactions,
+          decentralized finance, fraud detection, and financial analytics.
+        </p>
+
+        <p>
+          The initial search returned just under five hundred papers. After removing duplicates and clearly irrelevant
+          works, approximately two hundred papers were examined at the abstract level, followed by full-text review of
+          around one hundred studies. The final corpus comprises seventy-eight papers that make substantive operational
+          use of LLMs for blockchain-related tasks. We included both peer-reviewed publications and well-documented
+          preprints, reflecting standard practice in AI research. Works were excluded when LLMs were mentioned only
+          tangentially, when contributions were purely conceptual without empirical or technical validation, or when
+          methodological details were insufficient to support comparison.
+        </p>
+
+        <p>
+          The selected literature reveals a sharp acceleration in research activity after late 2022, following the public
+          release of ChatGPT. Figure 1 situates this growth alongside major developments in LLM capabilities and
+          significant events in blockchain security and DeFi. From 2023 onward, the number of LLM-based blockchain
+          studies increased rapidly, with particularly strong concentration in smart contract auditing and vulnerability
+          detection. At the same time, real-world incidents continued to escalate in scale, with hundreds of smart
+          contract and DeFi attacks reported in 2024 alone, reinforcing the demand for automated analysis methods capable
+          of reasoning about complex logic and cross-contract interactions <span style="color: var(--muted);">[Cymetrics Tech Blog, 2024]</span>.
+        </p>
+
+        <p>
+          Across the surveyed papers, we observe substantial heterogeneity in model choice, data scale, and evaluation
+          practice. Proprietary GPT-family models dominate early work, while more recent studies increasingly explore
+          open-source models and lightweight fine-tuning for scalability. Dataset sizes vary by several orders of
+          magnitude, ranging from analyses of individual contracts to studies involving over one hundred thousand
+          transactions or addresses. Smart contract auditing accounts for a disproportionate share of the literature,
+          while transaction anomaly detection, fraud analysis, DeFi-scale reasoning, and financial modeling receive
+          comparatively limited attention. These imbalances motivate a taxonomy that goes beyond task labels and instead
+          characterizes systems by the functional role played by the LLM, enabling comparison across domains that would
+          otherwise appear unrelated.
+        </p>
+
+      </div>
+
+      <div class="criteriaGrid">
+        <figure class="figureCard">
+          <img src="figures/figure1_timeline.png"
+               alt="Timeline of key milestones in LLM development and blockchain security from 2020 to 2025"
+               loading="lazy">
+          <figcaption>
+            <b>Figure 1:</b> Timeline of key milestones in LLM development and blockchain security from 2020 to 2025,
+            showing how GPT-3, ChatGPT, and open-source LLMs emerge alongside major bridge hacks, complex DeFi protocol
+            failures, the first LLM-based smart contract auditing tools, RAG and agentic security pipelines, and the
+            adoption of on-chain real-time monitoring in operations.
+          </figcaption>
+        </figure>
+
+        <figure class="figureCard">
+          <img src="figures/figure2_heatmap.png"
+               alt="Heatmap of LLM role usage across application domains"
+               loading="lazy">
+          <figcaption>
+            <b>Figure 2:</b> Heatmap of LLM role usage across application domains (counts indicative).
+          </figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section class="section">
       <p>
@@ -1844,4 +1951,3 @@ Large Language Models for Financial Services
   </script>
 </body>
 </html>
-
